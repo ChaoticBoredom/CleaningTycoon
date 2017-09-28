@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Residence : MonoBehaviour {
-	public Vector2 location = new Vector2(0,0);
-  public float startingDirtRate = 10.0f;
-	private float dirtRate = 10.0f;
+	public Vector2 location;
+  public float startingDirt = 10.0f;
+  public float dirtRate = 1.0f;
+	public float currentDirt;
 
 	public bool isClean;
 	public int cleaningWorth;
@@ -13,19 +14,15 @@ public class Residence : MonoBehaviour {
   private ParticleSystem particleSystem;
 	// Use this for initialization
 	void Start () {
+		location = new Vector2(transform.position.x, transform.position.y);
     particleSystem = gameObject.GetComponent(typeof(ParticleSystem)) as ParticleSystem;
-		isClean = false;
 		cleaningWorth = 100;
+    currentDirt = startingDirt;
+    InvokeRepeating("getDirty", 1, 1);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(isClean){
-			dirtRate -= Time.deltaTime;
-			if(dirtRate < 0){
-				getsDirty();
-			}
-		}
 	}
 
   void OnMouseDown() {
@@ -37,14 +34,35 @@ public class Residence : MonoBehaviour {
     }
   }
 
+  private void getDirty() {
+    if (isDirty()) {
+      return;
+    }
+
+    currentDirt += dirtRate;
+    if (currentDirt >= 20.0f) {
+      dirtied();
+    }
+  }
+
+  public void cleanHouse(float cleanRate = 1.0f) {
+    if (isClean) {
+      return;
+    }
+
+    currentDirt -= cleanRate;
+    if (currentDirt <= 0) {
+      cleaned();
+    }
+  }
+
 	public void cleaned () {
 		isClean = true;
     particleSystem.Stop();
 		GlobalGameState.instance.incrementCapital(cleaningWorth);
-    dirtRate = startingDirtRate;
 	}
 
-	private void getsDirty () {
+	private void dirtied () {
     particleSystem.Play();
 		isClean = false;
 	}
