@@ -81,7 +81,9 @@ public class Employee : MonoBehaviour {
     transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), newLocation, step);
     location.x = transform.position.x;
     location.y = transform.position.y;
-    animator.SetBool("Cleaning", true);
+    if (newLocation != initialLocation) {
+      animator.SetBool("Cleaning", true);
+    }
   }
 
   void goToWork() {
@@ -93,9 +95,10 @@ public class Employee : MonoBehaviour {
       if (this.location == currentResidence.location) {
         if (currentResidence.isClean) {
           currentResidence = findNextDirtyResidence(currentResidence);
-          animator.SetBool("Done", true);
-          Invoke("resetAnimation", 1);
+
           animator.SetBool("Cleaning", false);
+          animator.SetBool("Done", true);
+          Invoke("resetAnimation", 3);
         } else {
           currentResidence.cleanHouse(cleanRate);
           animator.SetBool("Cleaning", true);
