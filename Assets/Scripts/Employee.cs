@@ -45,8 +45,9 @@ public class Employee : MonoBehaviour {
       if (this.location == currentResidence.location) {
         if (currentResidence.isClean) {
           currentResidence = findNextDirtyResidence(currentResidence);
+        } else {
+          currentResidence.cleanHouse(cleanRate);
         }
-        currentResidence.cleanHouse(cleanRate);
       }
     } else {
       currentResidence = findNextDirtyResidence(currentResidence);

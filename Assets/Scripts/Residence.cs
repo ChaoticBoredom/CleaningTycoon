@@ -12,13 +12,13 @@ public class Residence : MonoBehaviour {
 	public int cleaningWorth;
 
 	private float DIRTY_THRESHOLD = 15.0f;
+  private Animator animator;
 
-  private ParticleSystem particleSystem;
-	// Use this for initialization
+  // Use this for initialization
 	void Start () {
 		location = new Vector2(transform.position.x, transform.position.y);
-    particleSystem = gameObject.GetComponent(typeof(ParticleSystem)) as ParticleSystem;
-		cleaningWorth = 100;
+    animator = GetComponent<Animator>();
+    cleaningWorth = 100;
     currentDirt = startingDirt;
     InvokeRepeating("getDirty", 1, 1);
 	}
@@ -51,6 +51,7 @@ public class Residence : MonoBehaviour {
     if (isClean) {
       return;
     }
+    animator.SetTrigger("Cleaning");
 
     currentDirt -= cleanRate;
     if (currentDirt <= 0) {
@@ -60,12 +61,12 @@ public class Residence : MonoBehaviour {
 
 	public void cleaned () {
 		isClean = true;
-    particleSystem.Stop();
 		GlobalGameState.instance.incrementCapital(cleaningWorth);
+    animator.SetBool("Clean", true);
 	}
 
 	private void dirtied () {
-    particleSystem.Play();
+    animator.SetBool("Clean", false);
 		isClean = false;
 	}
 
