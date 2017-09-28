@@ -6,7 +6,7 @@ public class Employee : MonoBehaviour {
   public Vector2 location;
   private List<Residence> assignedResidences;
   private Residence currentResidence;
-  private float cleanRate = 1.0f;
+  private float cleanRate = 2.5f;
   private float speed = 10.0f;
 
 	// Use this for initialization

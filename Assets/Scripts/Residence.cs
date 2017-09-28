@@ -5,11 +5,13 @@ using UnityEngine;
 public class Residence : MonoBehaviour {
 	public Vector2 location;
   public float startingDirt = 10.0f;
-  public float dirtRate = 1.0f;
+  public float dirtRate = 2.0f;
 	public float currentDirt;
 
 	public bool isClean;
 	public int cleaningWorth;
+
+	private float DIRTY_THRESHOLD = 15.0f;
 
   private ParticleSystem particleSystem;
 	// Use this for initialization
@@ -40,7 +42,7 @@ public class Residence : MonoBehaviour {
     }
 
     currentDirt += dirtRate;
-    if (currentDirt >= 20.0f) {
+    if (currentDirt >= DIRTY_THRESHOLD) {
       dirtied();
     }
   }
