@@ -93,7 +93,8 @@ public class Employee : MonoBehaviour {
       if (this.location == currentResidence.location) {
         if (currentResidence.isClean) {
           currentResidence = findNextDirtyResidence(currentResidence);
-          animator.SetTrigger("Done");
+          animator.SetBool("Done", true);
+          Invoke("resetAnimation", 1);
           animator.SetBool("Cleaning", false);
         } else {
           currentResidence.cleanHouse(cleanRate);
@@ -118,6 +119,10 @@ public class Employee : MonoBehaviour {
 
   public void unassignResidence(Residence residence) {
     assignedResidences.Remove(residence);
+  }
+
+  private void resetAnimation() {
+    animator.SetBool("Done", false);
   }
 
   private Residence findNextDirtyResidence(Residence startingResidence = null) {
