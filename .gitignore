@@ -11,3 +11,4 @@ Obj/*
 *.swp
 *.sublime*
 .DS_Store
+.vs_code*
