@@ -9,6 +9,8 @@ public class Employee : MonoBehaviour {
   private float cleanRate = 2.5f;
   private float speed = 10.0f;
 
+  public bool highlighted = false;
+
 	// Use this for initialization
 	void Start () {
     location = new Vector2(transform.position.x, transform.position.y);
@@ -23,7 +25,24 @@ public class Employee : MonoBehaviour {
 	}
 
   void OnMouseDown() {
-    GlobalGameState.instance.CurrentlySelectedEmployee = this;
+    if (GlobalGameState.instance.CurrentlySelectedEmployee == this) {
+      GlobalGameState.instance.CurrentlySelectedEmployee = null;
+      markSelected(false);
+    } else {
+      if (GlobalGameState.instance.CurrentlySelectedEmployee != null) {
+        GlobalGameState.instance.CurrentlySelectedEmployee.markSelected(false);
+      }
+      GlobalGameState.instance.CurrentlySelectedEmployee = this;
+      markSelected(true);
+    }
+  }
+
+  void markSelected(bool state) {
+    highlighted = state;
+
+    for(int i = 0; i < assignedResidences.Count; i++) {
+      assignedResidences[i].highlighted = state;
+    }
   }
 
   void moveToResidence(Residence targetResidence) {
