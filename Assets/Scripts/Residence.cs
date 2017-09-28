@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Residence : MonoBehaviour {
 	public Vector2 location = new Vector2(0,0);
-	public float appearRate = 1.0f;
 	public float dirtRate = 100.0f;
 
 	public int assignedWorkers;
