@@ -36,7 +36,7 @@ public class Employee : MonoBehaviour {
       }
     }
 
-    if (currentResidence.is_clean()) {
+    if (currentResidence.isClean) {
       int nextIndex = assignedResidences.IndexOf(currentResidence) + 1;
       if (nextIndex > assignedResidences.Count) {
         nextIndex = 0;
@@ -44,7 +44,7 @@ public class Employee : MonoBehaviour {
       currentResidence = assignedResidences[nextIndex];
     }
 
-    currentResidence.cleanSomething(1.0f);
+    currentResidence.cleaned();
   }
 
   void payEmployee() {

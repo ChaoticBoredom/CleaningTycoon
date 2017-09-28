@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Residence : MonoBehaviour {
 	public Vector2 location = new Vector2(0,0);
-	public float appearRate = 1.0f;
 	public float dirtRate = 100.0f;
 
-	public int assignedWorkers;
 	public bool isClean;
-
+	public int cleaningWorth;
 	// Use this for initialization
 	void Start () {
 		isClean = false;
-		assignedWorkers = 0;
+		cleaningWorth = 100;
 	}
 	
 	// Update is called once per frame
@@ -30,24 +28,16 @@ public class Residence : MonoBehaviour {
     GlobalGameState.instance.CurrentlySelectedEmployee.assignResidence(this);
   }
 
-	void Cleaned () {
+	public void cleaned () {
 		isClean = true;
+		GlobalGameState.instance.incrementCapital(cleaningWorth);
 	}
 	
 	private void getsDirty () {
 		isClean = false;
 	}
 
-  public bool is_dirty() {
-    return true;
-  }
-
-  public bool is_clean() {
-    return false;
-  }
-
-  public void cleanSomething(float cleanRate = 1.0f) {
-
-  }
-
+	public bool dirty(){
+		return !isClean;
+	}
 }

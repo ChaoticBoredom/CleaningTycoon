@@ -7,6 +7,7 @@ public class GlobalGameState : MonoBehaviour {
   private static GlobalGameState singletonInstance = null;
   private int capital;
   private Employee currentlySelectedEmployee;
+  private float appearRate;
 
   public static GlobalGameState instance {
     get {
@@ -30,14 +31,25 @@ public class GlobalGameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     capital = 500;
-  }
+    appearRate = 300.0f;
+	}
 	
 	// Update is called once per frame
 	void Update () {
+    appearRate -= Time.deltaTime;
+    if(appearRate < 0){
+      GameObject newResidence = (GameObject)Instantiate(Resources.Load("Residence"));
+      //Can add code here to customize new residences when they get created
+      appearRate = 300.0f;   
+    }
 	}
 
   public void decrementCapital(int amount = 0) {
     capital -= amount;
+  }
+
+  public void incrementCapital(int amount = 0) {
+    capital += amount;
   }
 
   public Employee CurrentlySelectedEmployee {
