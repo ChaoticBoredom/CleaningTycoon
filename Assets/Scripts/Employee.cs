@@ -14,11 +14,13 @@ public class Employee : MonoBehaviour {
 
   public bool highlighted = false;
 
+  private Animator animator;
+
 	// Use this for initialization
 	void Start () {
+    animator = GetComponent<Animator>();
     initialLocation = new Vector2(transform.position.x, transform.position.y);
-    location = initialLocation;
-    assignedResidences = new List<Residence>();
+    location = initialLocation;    assignedResidences = new List<Residence>();
     InvokeRepeating("payEmployee", 1, 1);
     InvokeRepeating("goToWork", 1, 1);
 	}
@@ -71,6 +73,7 @@ public class Employee : MonoBehaviour {
     transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), newLocation, step);
     location.x = transform.position.x;
     location.y = transform.position.y;
+    animator.SetBool("Cleaning", true);
   }
 
   void goToWork() {
@@ -82,8 +85,11 @@ public class Employee : MonoBehaviour {
       if (this.location == currentResidence.location) {
         if (currentResidence.isClean) {
           currentResidence = findNextDirtyResidence(currentResidence);
+          animator.SetTrigger("Done");
+          animator.SetBool("Cleaning", false);
         } else {
           currentResidence.cleanHouse(cleanRate);
+          animator.SetBool("Cleaning", true);
         }
       }
     } else {

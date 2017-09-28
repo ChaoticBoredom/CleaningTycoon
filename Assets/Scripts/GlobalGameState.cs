@@ -36,7 +36,6 @@ public class GlobalGameState : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-    Debug.Log (capital);
 	}
 
   public void decrementCapital(int amount = 0) {
