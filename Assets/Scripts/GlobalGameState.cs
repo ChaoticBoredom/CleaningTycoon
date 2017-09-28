@@ -5,10 +5,10 @@ using UnityEngine;
 public class GlobalGameState : MonoBehaviour {
 
   private static GlobalGameState singletonInstance = null;
-  private int capital;
+  public int capital;
   private Employee currentlySelectedEmployee;
   public float appearRate;
-  
+
 
   public static GlobalGameState instance {
     get {
