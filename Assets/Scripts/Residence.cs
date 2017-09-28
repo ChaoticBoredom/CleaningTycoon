@@ -13,7 +13,7 @@ public class Residence : MonoBehaviour {
 		isClean = false;
 		cleaningWorth = 100;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if(isClean){
@@ -32,12 +32,12 @@ public class Residence : MonoBehaviour {
 		isClean = true;
 		GlobalGameState.instance.incrementCapital(cleaningWorth);
 	}
-	
+
 	private void getsDirty () {
 		isClean = false;
 	}
 
-	public bool dirty(){
+	public bool isDirty(){
 		return !isClean;
 	}
 }
