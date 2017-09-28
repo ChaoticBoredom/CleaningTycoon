@@ -40,6 +40,9 @@ public class GlobalGameState : MonoBehaviour {
 
   public void decrementCapital(int amount = 0) {
     capital -= amount;
+    if(capital <= 0){
+      Application.LoadLevel("LoseScreen");
+    }
   }
 
   public void incrementCapital(int amount = 0) {
