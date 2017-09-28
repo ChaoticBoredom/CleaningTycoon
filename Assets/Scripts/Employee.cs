@@ -37,7 +37,7 @@ public class Employee : MonoBehaviour {
     }
   }
 
-  void markSelected(bool state) {
+  public void markSelected(bool state) {
     highlighted = state;
 
     for(int i = 0; i < assignedResidences.Count; i++) {
