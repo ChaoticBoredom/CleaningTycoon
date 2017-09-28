@@ -31,7 +31,7 @@ public class Residence : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (highlighted) {
-			rend.material.color = Color.green;
+			rend.material.color = Color.cyan;
 		} else {
 			rend.material.color = Color.white;
 		}

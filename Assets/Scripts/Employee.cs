@@ -15,9 +15,11 @@ public class Employee : MonoBehaviour {
   public bool highlighted = false;
 
   private Animator animator;
+  public Renderer rend;
 
 	// Use this for initialization
 	void Start () {
+    rend = GetComponent<Renderer>();
     animator = GetComponent<Animator>();
     initialLocation = new Vector2(transform.position.x, transform.position.y);
     location = initialLocation;    assignedResidences = new List<Residence>();
@@ -27,6 +29,12 @@ public class Employee : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+    if (highlighted) {
+      rend.material.color = Color.cyan;
+    } else {
+      rend.material.color = Color.white;
+    }
+
     if (goingHome) {
       if (location == initialLocation) {
         goingHome = false;
