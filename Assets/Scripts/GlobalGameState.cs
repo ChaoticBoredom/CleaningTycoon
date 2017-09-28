@@ -7,9 +7,9 @@ public class GlobalGameState : MonoBehaviour {
   private static GlobalGameState singletonInstance = null;
   private int capital;
   private Employee currentlySelectedEmployee;
-  public float appearRate;
+  
 
-  public GameObject residence;
+  
 
   public static GlobalGameState instance {
     get {
@@ -33,40 +33,12 @@ public class GlobalGameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     capital = 500;
-    appearRate = 1.0f;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-    if(appearRate > 0){
-      appearRate -= Time.deltaTime;
-    }
-    else{
-      //Vector2 screenPosition = Vector2.zero;
-      GameObject newResidence = Instantiate(residence);
-      //Can add code here to customize new residences when they get created
-      //Resets the house spawn timer
-      appearRate = 2.0f;   
-      newResidence.transform.position = createResidenceLocation();
-      object[] obj = GameObject.FindGameObjectsWithTag("Residence");
-      foreach (object o in obj)  
-      {
-        GameObject g = (GameObject) o;
-        if (newResidence.GetComponent<Renderer>().bounds.Intersects(g.GetComponent<Renderer>().bounds)) {
-          newResidence.transform.position = createResidenceLocation();
-
-        }
-      }
-
-    }
-
-	}
-  
-  private Vector2 createResidenceLocation(){
-    Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(0,Screen.width), Random.Range(0,Screen.height)));
-    screenPosition.y += 2;
-    return screenPosition;
   }
+  
   public void decrementCapital(int amount = 0) {
     capital -= amount;
   }
