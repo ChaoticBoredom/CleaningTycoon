@@ -7,15 +7,8 @@ public class GlobalGameState : MonoBehaviour {
   private static GlobalGameState singletonInstance = null;
   private int capital;
   private Employee currentlySelectedEmployee;
-<<<<<<< HEAD
   public float appearRate;
-
   public GameObject residence;
-=======
-
-
-
->>>>>>> 5eba7592b5f2be4852cb5b7a7c2a40315a77aaaf
 
   public static GlobalGameState instance {
     get {
