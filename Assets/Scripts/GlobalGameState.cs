@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlobalGameState : MonoBehaviour {
 
   private static GlobalGameState singletonInstance = null;
-  public int capital;
+  public float capital;
   private Employee currentlySelectedEmployee;
   public float appearRate;
 
@@ -38,7 +38,7 @@ public class GlobalGameState : MonoBehaviour {
 	void FixedUpdate () {
 	}
 
-  public void decrementCapital(int amount = 0) {
+  public void decrementCapital(float amount = 0) {
     capital -= amount;
     if(capital <= 0){
       Application.LoadLevel("LoseScreen");
