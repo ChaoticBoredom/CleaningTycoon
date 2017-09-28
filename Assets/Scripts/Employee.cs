@@ -12,6 +12,8 @@ public class Employee : MonoBehaviour {
   private bool employed = false;
   private bool goingHome = false;
 
+  public float pay = 1.0f;
+
   public bool highlighted = false;
 
   private Animator animator;
@@ -110,7 +112,7 @@ public class Employee : MonoBehaviour {
   }
 
   void payEmployee() {
-    GlobalGameState.instance.decrementCapital(1);
+    GlobalGameState.instance.decrementCapital(pay);
   }
 
   public void assignResidence(Residence residence) {
