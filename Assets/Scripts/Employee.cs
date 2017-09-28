@@ -31,7 +31,7 @@ public class Employee : MonoBehaviour {
     currentResidence = findNextDirtyResidence(currentResidence);
 
     if (currentResidence != null) {
-      currentResidence.cleaned();
+      currentResidence.cleanHouse(cleanRate);
     }
   }
 
