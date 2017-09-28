@@ -9,6 +9,11 @@ public class GlobalGameState : MonoBehaviour {
   private Employee currentlySelectedEmployee;
   private float appearRate;
 
+  public GameObject residence;
+
+
+  
+
   public static GlobalGameState instance {
     get {
       if (singletonInstance == null) {
@@ -31,14 +36,15 @@ public class GlobalGameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     capital = 500;
-    appearRate = 300.0f;
+    appearRate = 10.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
     appearRate -= Time.deltaTime;
+    Debug.Log(appearRate);
     if(appearRate < 0){
-      GameObject newResidence = (GameObject)Instantiate(Resources.Load("Residence"));
+      GameObject newResidence = Instantiate(residence);
       //Can add code here to customize new residences when they get created
       appearRate = 300.0f;   
     }
