@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   location: {x: 0, y: 0}
-  dirtRate: 100
+  dirtRate: 10
   isClean: 0
   cleaningWorth: 0
 --- !u!198 &198945131062015652

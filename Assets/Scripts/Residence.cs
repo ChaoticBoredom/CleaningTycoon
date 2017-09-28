@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Residence : MonoBehaviour {
 	public Vector2 location = new Vector2(0,0);
-	public float dirtRate = 100.0f;
+  public float startingDirtRate = 10.0f;
+	private float dirtRate = 10.0f;
 
 	public bool isClean;
 	public int cleaningWorth;
@@ -40,6 +41,7 @@ public class Residence : MonoBehaviour {
 		isClean = true;
     particleSystem.Stop();
 		GlobalGameState.instance.incrementCapital(cleaningWorth);
+    dirtRate = startingDirtRate;
 	}
 
 	private void getsDirty () {

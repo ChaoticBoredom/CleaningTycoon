@@ -28,23 +28,11 @@ public class Employee : MonoBehaviour {
       return;
     }
 
-    if (currentResidence == null) {
-      foreach(Residence residence in assignedResidences) {
-        if (residence.isDirty()) {
-          currentResidence = residence;
-        }
-      }
-    }
+    currentResidence = findNextDirtyResidence(currentResidence);
 
-    if (currentResidence.isClean) {
-      int nextIndex = assignedResidences.IndexOf(currentResidence) + 1;
-      if (nextIndex >= assignedResidences.Count) {
-        nextIndex = 0;
-      }
-      currentResidence = assignedResidences[nextIndex];
+    if (currentResidence != null) {
+      currentResidence.cleaned();
     }
-
-    currentResidence.cleaned();
   }
 
   void payEmployee() {
@@ -60,5 +48,28 @@ public class Employee : MonoBehaviour {
 
   public void unassignResidence(Residence residence) {
     assignedResidences.Remove(residence);
+  }
+
+  private Residence findNextDirtyResidence(Residence startingResidence = null) {
+    int startingIndex;
+    if (startingResidence == null) {
+      startingIndex = 0;
+    } else {
+      startingIndex = assignedResidences.IndexOf(startingResidence);
+    }
+
+    for(int i = startingIndex; i < assignedResidences.Count; i++) {
+      if (assignedResidences[i].isDirty()) {
+        return assignedResidences[i];
+      }
+    }
+
+    for(int i = 0; i < startingIndex; i++) {
+      if (assignedResidences[i].isDirty()) {
+        return assignedResidences[i];
+      }
+    }
+
+    return null;
   }
 }
