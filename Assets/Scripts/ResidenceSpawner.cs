@@ -28,22 +28,33 @@ public class ResidenceSpawner : MonoBehaviour {
       //Resets the house spawn timer
       appearRate = 2.0f;   
       newResidence.transform.position = createResidenceLocation();
-      object[] obj = GameObject.FindGameObjectsWithTag("Residence");
-      foreach (object o in obj)  
-      {
-        GameObject g = (GameObject) o;
-        if (newResidence.GetComponent<Renderer>().bounds.Intersects(g.GetComponent<Renderer>().bounds)) {
-          newResidence.transform.position = createResidenceLocation();
-
-        }
-      }
+	  if(checkColl(newResidence)){
+		  newResidence.transform.position = createResidenceLocation();
+		}
+	  
+	
 
     }
 
 	}
 	private Vector2 createResidenceLocation(){
     Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(0,Screen.width), Random.Range(0,Screen.height)));
-    screenPosition.y += 2;
+    if(screenPosition.y < Screen.height - 4){
+		screenPosition.y += 2;
+	}
     return screenPosition;
+  }
+
+  private bool checkColl(GameObject newResidence){
+	  object[] obj = GameObject.FindGameObjectsWithTag("Residence");
+      foreach (object o in obj)  
+      {
+        GameObject g = (GameObject) o;
+        if (newResidence.GetComponent<Renderer>().bounds.Intersects(g.GetComponent<Renderer>().bounds)) {
+			return true;
+
+        }
+      }
+	  return false;
   }
 }
