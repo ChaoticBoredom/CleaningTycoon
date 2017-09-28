@@ -41,8 +41,13 @@ public class Residence : MonoBehaviour {
     if (currentEmployee == null) {
       return;
     } else {
-      currentEmployee.assignResidence(this);
-			highlighted = true;
+			if (!highlighted) {
+	      currentEmployee.assignResidence(this);
+				highlighted = true;
+			} else {
+				currentEmployee.unassignResidence(this);
+				highlighted = false;
+			}
     }
   }
 
