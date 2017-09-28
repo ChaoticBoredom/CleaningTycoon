@@ -8,8 +8,11 @@ public class Residence : MonoBehaviour {
 
 	public bool isClean;
 	public int cleaningWorth;
+
+  private ParticleSystem particleSystem;
 	// Use this for initialization
 	void Start () {
+    particleSystem = gameObject.GetComponent(typeof(ParticleSystem)) as ParticleSystem;
 		isClean = false;
 		cleaningWorth = 100;
 	}
@@ -25,15 +28,22 @@ public class Residence : MonoBehaviour {
 	}
 
   void OnMouseDown() {
-    GlobalGameState.instance.CurrentlySelectedEmployee.assignResidence(this);
+    Employee currentEmployee = GlobalGameState.instance.CurrentlySelectedEmployee;
+    if (currentEmployee == null) {
+      return;
+    } else {
+      currentEmployee.assignResidence(this);
+    }
   }
 
 	public void cleaned () {
 		isClean = true;
+    particleSystem.Stop();
 		GlobalGameState.instance.incrementCapital(cleaningWorth);
 	}
 
 	private void getsDirty () {
+    particleSystem.Play();
 		isClean = false;
 	}
 
