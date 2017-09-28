@@ -1,0 +1,13 @@
+Jobber/*
+Library/*
+Temp/*
+Obj/*
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.userprefs
+*~
+*.swp
+*.sublime*
+.DS_Store
