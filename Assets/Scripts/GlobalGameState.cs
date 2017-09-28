@@ -8,6 +8,8 @@ public class GlobalGameState : MonoBehaviour {
   private int capital;
   private float appearRate;
 
+  
+
   public static GlobalGameState instance {
     get {
       if (singletonInstance == null) {
