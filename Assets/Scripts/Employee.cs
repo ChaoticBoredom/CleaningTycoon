@@ -7,8 +7,8 @@ public class Employee : MonoBehaviour {
   private Vector2 initialLocation;
   private List<Residence> assignedResidences;
   private Residence currentResidence;
-  private float cleanRate = 2.5f;
-  private float speed = 10.0f;
+  public float cleanRate = 2.5f;
+  public float speed = 10.0f;
   private bool employed = false;
   private bool goingHome = false;
 
