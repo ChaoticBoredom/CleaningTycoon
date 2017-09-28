@@ -11,6 +11,8 @@ public class Residence : MonoBehaviour {
 	public bool isClean;
 	public int cleaningWorth;
 
+	public bool highlighted = false;
+
 	private float DIRTY_THRESHOLD = 15.0f;
 
   private ParticleSystem particleSystem;
@@ -33,6 +35,7 @@ public class Residence : MonoBehaviour {
       return;
     } else {
       currentEmployee.assignResidence(this);
+			highlighted = true;
     }
   }
 

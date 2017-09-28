@@ -11,9 +11,6 @@ public class GlobalGameState : MonoBehaviour {
 
   public GameObject residence;
 
-
-  
-
   public static GlobalGameState instance {
     get {
       if (singletonInstance == null) {
@@ -38,7 +35,7 @@ public class GlobalGameState : MonoBehaviour {
     capital = 500;
     appearRate = 1.0f;
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
     if(appearRate > 0){
@@ -49,7 +46,7 @@ public class GlobalGameState : MonoBehaviour {
       GameObject newResidence = Instantiate(residence);
       //Can add code here to customize new residences when they get created
       //Resets the house spawn timer
-      //appearRate = 2.0f;   
+      //appearRate = 2.0f;
       newResidence.transform.position = screenPosition;
     }
 
