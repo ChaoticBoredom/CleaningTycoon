@@ -26,7 +26,7 @@ public class ResidenceSpawner : MonoBehaviour {
       GameObject newResidence = Instantiate(residence);
       //Can add code here to customize new residences when they get created
       //Resets the house spawn timer
-      appearRate = 2.0f;   
+      appearRate = 10.0f;   
       newResidence.transform.position = createResidenceLocation();
 	  if(checkColl(newResidence)){
 		  newResidence.transform.position = createResidenceLocation();
@@ -39,8 +39,8 @@ public class ResidenceSpawner : MonoBehaviour {
 	}
 	private Vector2 createResidenceLocation(){
     Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(0,Screen.width), Random.Range(0,Screen.height)));
-    if(screenPosition.y < Screen.height - 4){
-		screenPosition.y += 2;
+    if(screenPosition.y < Screen.height - 5){
+		screenPosition.y += 5;
 	}
     return screenPosition;
   }
