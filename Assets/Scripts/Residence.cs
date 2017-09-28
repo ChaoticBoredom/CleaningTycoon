@@ -54,7 +54,7 @@ public class Residence : MonoBehaviour {
     if (isClean) {
       return;
     }
-    animator.SetTrigger("Cleaning");
+    animator.SetBool("Cleaning", true);
 
     currentDirt -= cleanRate;
     if (currentDirt <= 0) {
@@ -66,6 +66,7 @@ public class Residence : MonoBehaviour {
 		isClean = true;
 		GlobalGameState.instance.incrementCapital(cleaningWorth);
     animator.SetBool("Clean", true);
+    animator.SetBool("Cleaning", false);
 	}
 
 	private void dirtied () {
