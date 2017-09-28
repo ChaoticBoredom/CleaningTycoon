@@ -25,7 +25,12 @@ public class Residence : MonoBehaviour {
 	}
 
   void OnMouseDown() {
-    GlobalGameState.instance.CurrentlySelectedEmployee.assignResidence(this);
+    Employee currentEmployee = GlobalGameState.instance.CurrentlySelectedEmployee;
+    if (currentEmployee == null) {
+      return;
+    } else {
+      currentEmployee.assignResidence(this);
+    }
   }
 
 	public void cleaned () {
