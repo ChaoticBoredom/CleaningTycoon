@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Residence : MonoBehaviour {
 	public Vector2 location = new Vector2(0,0);
-	public int appearRate = 1;
-	public int dirtRate = 1;
+	public float appearRate = 1.0f;
+	public float dirtRate = 100.0f;
 
 	public int assignedWorkers;
 	public bool isClean;
@@ -18,6 +18,12 @@ public class Residence : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(isClean){
+			dirtRate -= Time.deltaTime;
+			if(dirtRate < 0){
+				getsDirty();
+			}
+		}
 	}
 
 	void Cleaned () {
