@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Residence : MonoBehaviour {
-	public Vector2 location = new Vector2(0,0);
+	public Vector2 location;
   public float startingDirt = 10.0f;
   public float dirtRate = 1.0f;
-	public float currentDirt; 
+	public float currentDirt;
 
 	public bool isClean;
 	public int cleaningWorth;
@@ -14,6 +14,7 @@ public class Residence : MonoBehaviour {
   private ParticleSystem particleSystem;
 	// Use this for initialization
 	void Start () {
+		location = new Vector2(transform.position.x, transform.position.y);
     particleSystem = gameObject.GetComponent(typeof(ParticleSystem)) as ParticleSystem;
 		cleaningWorth = 100;
     currentDirt = startingDirt;
