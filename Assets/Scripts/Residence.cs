@@ -26,6 +26,10 @@ public class Residence : MonoBehaviour {
 		}
 	}
 
+  void OnMouseDown() {
+    GlobalGameState.instance.CurrentlySelectedEmployee.assignResidence(this);
+  }
+
 	void Cleaned () {
 		isClean = true;
 	}
@@ -33,5 +37,17 @@ public class Residence : MonoBehaviour {
 	private void getsDirty () {
 		isClean = false;
 	}
+
+  public bool is_dirty() {
+    return true;
+  }
+
+  public bool is_clean() {
+    return false;
+  }
+
+  public void cleanSomething(float cleanRate = 1.0f) {
+
+  }
 
 }

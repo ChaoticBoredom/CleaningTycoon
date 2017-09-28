@@ -287,6 +287,21 @@ Prefab:
       propertyPath: m_Name
       value: Residence (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114593886788849152, guid: 1d6f6c1e640f04445b35b681c8f2dc97,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23966599923174922, guid: 1d6f6c1e640f04445b35b681c8f2dc97,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65527659162766552, guid: 1d6f6c1e640f04445b35b681c8f2dc97,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d6f6c1e640f04445b35b681c8f2dc97, type: 2}
   m_IsPrefabParent: 0
@@ -454,7 +469,7 @@ GameObject:
   - component: {fileID: 1640313117}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

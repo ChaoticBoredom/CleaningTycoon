@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65527659162766552}
   - component: {fileID: 23966599923174922}
   - component: {fileID: 114593886788849152}
+  - component: {fileID: 131802424677038918}
   m_Layer: 0
   m_Name: Residence
   m_TagString: Untagged
@@ -105,3 +106,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c62ba2fab1c43f1b9542225f2208a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  location: {x: 0, y: 0}
+  appearRate: 1
+  dirtRate: 100
+  assignedWorkers: 0
+  isClean: 0
+--- !u!131 &131802424677038918
+GUITexture:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366662403029364}
+  m_Enabled: 1
+  m_Texture: {fileID: 0}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0

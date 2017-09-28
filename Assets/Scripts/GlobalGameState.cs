@@ -6,8 +6,7 @@ public class GlobalGameState : MonoBehaviour {
 
   private static GlobalGameState singletonInstance = null;
   private int capital;
-
-  
+  private Employee currentlySelectedEmployee;
 
   public static GlobalGameState instance {
     get {
@@ -24,7 +23,6 @@ public class GlobalGameState : MonoBehaviour {
     }
   }
 
-
   void OnApplicationQuit() {
     singletonInstance = null;
   }
@@ -32,14 +30,18 @@ public class GlobalGameState : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     capital = 500;
-	}
+  }
 	
 	// Update is called once per frame
 	void Update () {
-
 	}
 
   public void decrementCapital(int amount = 0) {
     capital -= amount;
+  }
+
+  public Employee CurrentlySelectedEmployee {
+    get { return currentlySelectedEmployee; }
+    set { currentlySelectedEmployee = value; }
   }
 }
