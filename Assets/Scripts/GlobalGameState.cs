@@ -7,6 +7,8 @@ public class GlobalGameState : MonoBehaviour {
   private static GlobalGameState singletonInstance = null;
   private int capital;
 
+  
+
   public static GlobalGameState instance {
     get {
       if (singletonInstance == null) {
