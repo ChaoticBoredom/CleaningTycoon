@@ -11,9 +11,6 @@ public class GlobalGameState : MonoBehaviour {
 
   public GameObject residence;
 
-
-  
-
   public static GlobalGameState instance {
     get {
       if (singletonInstance == null) {
