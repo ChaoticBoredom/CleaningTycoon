@@ -8,6 +8,7 @@ public class Employee : MonoBehaviour {
   private Residence currentResidence;
   private float cleanRate = 2.5f;
   private float speed = 10.0f;
+  private bool employed = false;
 
   public bool highlighted = false;
 
@@ -34,6 +35,9 @@ public class Employee : MonoBehaviour {
       }
       GlobalGameState.instance.CurrentlySelectedEmployee = this;
       markSelected(true);
+      if (this.employed == false) {
+        employ ();
+      }
     }
   }
 
@@ -109,5 +113,10 @@ public class Employee : MonoBehaviour {
     }
 
     return null;
+  }
+
+  private void employ() {
+    this.employed = true;
+    GlobalGameState.instance.decrementCapital (20);
   }
 }

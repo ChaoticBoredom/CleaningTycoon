@@ -21,7 +21,7 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Cleaning
-    m_Type: 9
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -49,6 +49,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Clean
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Cleaning
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102913890213759382}
   m_Solo: 0
@@ -56,11 +59,11 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0
-  m_TransitionOffset: 0.012779589
-  m_ExitTime: 0.98998255
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.0000000013116817
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101197375392340662
@@ -80,11 +83,11 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0
-  m_TransitionOffset: 0.01405753
-  m_ExitTime: 0.9905522
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_TransitionOffset: 0.0075088968
+  m_ExitTime: 0.0000000028958493
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &1101214843381225626
@@ -107,11 +110,11 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0
-  m_TransitionOffset: 0.021245915
-  m_ExitTime: 0.9988818
+  m_TransitionOffset: 0
+  m_ExitTime: 0.0000000033784915
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1102 &1102174886316628510
@@ -228,7 +231,7 @@ AnimatorStateMachine:
     m_Position: {x: 298, y: 338, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102221670271470852}
-    m_Position: {x: 192, y: 192, z: 0}
+    m_Position: {x: 192, y: 168, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
