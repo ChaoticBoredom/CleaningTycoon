@@ -14,7 +14,7 @@ public class TextScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (text != null) {
-			text.text = GlobalGameState.instance.capital;
+			text.text = "" + GlobalGameState.instance.capital;
 		}
 	}
 }
