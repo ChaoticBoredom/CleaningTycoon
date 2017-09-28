@@ -40,7 +40,8 @@ public class GlobalGameState : MonoBehaviour {
 	void Update () {
     appearRate -= Time.deltaTime;
     if(appearRate < 0){
-      GameObject go = (GameObject)Instantiate(Resources.Load("Residence")); ;
+      GameObject newResidence = (GameObject)Instantiate(Resources.Load("Residence"));
+      //Can add code here to customize new residences when they get created
       appearRate = 300.0f;   
     }
 	}
