@@ -14,7 +14,7 @@ public class Employee : MonoBehaviour {
     InvokeRepeating("payEmployee", 1, 1);
     InvokeRepeating("cleanResidence", 1, 1);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	}
@@ -30,7 +30,7 @@ public class Employee : MonoBehaviour {
 
     if (currentResidence == null) {
       foreach(Residence residence in assignedResidences) {
-        if (residence.is_dirty()) {
+        if (residence.isDirty()) {
           currentResidence = residence;
         }
       }
