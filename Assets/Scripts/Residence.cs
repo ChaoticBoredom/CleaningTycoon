@@ -16,8 +16,11 @@ public class Residence : MonoBehaviour {
 	private float DIRTY_THRESHOLD = 15.0f;
   private Animator animator;
 
+	public Renderer rend;
+
   // Use this for initialization
 	void Start () {
+		rend = GetComponent<Renderer>();
 		location = new Vector2(transform.position.x, transform.position.y);
     animator = GetComponent<Animator>();
     cleaningWorth = 100;
@@ -27,6 +30,11 @@ public class Residence : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (highlighted) {
+			rend.material.color = Color.green;
+		} else {
+			rend.material.color = Color.white;
+		}
 	}
 
   void OnMouseDown() {
