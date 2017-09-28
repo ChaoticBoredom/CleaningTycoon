@@ -11,6 +11,5 @@ public class Residence : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GlobalGameState.instance.decrementCapital(1);
 	}
 }
