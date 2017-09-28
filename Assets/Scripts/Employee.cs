@@ -122,6 +122,9 @@ public class Employee : MonoBehaviour {
 
   public void unassignResidence(Residence residence) {
     assignedResidences.Remove(residence);
+    if (currentResidence == residence) {
+      currentResidence = null;
+    }
   }
 
   private void resetAnimation() {
