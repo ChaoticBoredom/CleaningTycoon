@@ -9,7 +9,7 @@ public class Residence : MonoBehaviour {
 	public float currentDirt;
 
 	public bool isClean;
-	public int cleaningWorth;
+	public int cleaningWorth = 30;
 
 	public bool highlighted = false;
 
@@ -23,7 +23,6 @@ public class Residence : MonoBehaviour {
 		rend = GetComponent<Renderer>();
 		location = new Vector2(transform.position.x, transform.position.y);
     animator = GetComponent<Animator>();
-    cleaningWorth = 100;
     currentDirt = startingDirt;
     InvokeRepeating("getDirty", 1, 1);
 	}

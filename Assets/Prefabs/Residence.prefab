@@ -88,7 +88,7 @@ MonoBehaviour:
   dirtRate: 1
   currentDirt: 10
   isClean: 0
-  cleaningWorth: 100
+  cleaningWorth: 30
   highlighted: 0
   rend: {fileID: 0}
 --- !u!212 &212831564384207290

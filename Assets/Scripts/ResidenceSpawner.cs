@@ -38,8 +38,8 @@ public class ResidenceSpawner : MonoBehaviour {
 
 	}
 	private Vector2 createResidenceLocation(){
-    Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(0,Screen.width), Random.Range(0,Screen.height)));
-    if(screenPosition.y < Screen.height - 5){
+    Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(0,Screen.width-20), Random.Range(0,Screen.height-20)));
+    if(screenPosition.y < Screen.height - 10){
 		screenPosition.y += 5;
 	}
     return screenPosition;
