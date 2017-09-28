@@ -7,10 +7,11 @@ public class Residence : MonoBehaviour {
 	public float dirtRate = 100.0f;
 
 	public bool isClean;
-
+	public int cleaningWorth;
 	// Use this for initialization
 	void Start () {
 		isClean = false;
+		cleaningWorth = 100;
 	}
 	
 	// Update is called once per frame
@@ -25,6 +26,7 @@ public class Residence : MonoBehaviour {
 
 	public void cleaned () {
 		isClean = true;
+		GlobalGameState.instance.incrementCapital(cleaningWorth);
 	}
 	
 	private void getsDirty () {

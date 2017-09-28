@@ -48,4 +48,8 @@ public class GlobalGameState : MonoBehaviour {
   public void decrementCapital(int amount = 0) {
     capital -= amount;
   }
+
+  public void incrementCapital(int amount = 0) {
+    capital += amount;
+  }
 }
