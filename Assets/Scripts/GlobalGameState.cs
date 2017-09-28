@@ -48,7 +48,8 @@ public class GlobalGameState : MonoBehaviour {
       Vector2 screenPosition = Camera.main.ScreenToWorldPoint(new Vector2(Random.Range(0,Screen.width), Random.Range(0,Screen.height)));
       GameObject newResidence = Instantiate(residence);
       //Can add code here to customize new residences when they get created
-      appearRate = 2.0f;   
+      //Resets the house spawn timer
+      //appearRate = 2.0f;   
       newResidence.transform.position = screenPosition;
     }
 
