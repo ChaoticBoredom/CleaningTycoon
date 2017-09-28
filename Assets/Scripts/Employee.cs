@@ -11,8 +11,11 @@ public class Employee : MonoBehaviour {
 
   public bool highlighted = false;
 
+  private Animator animator;
+
 	// Use this for initialization
 	void Start () {
+    animator = GetComponent<Animator>();
     location = new Vector2(transform.position.x, transform.position.y);
     assignedResidences = new List<Residence>();
     InvokeRepeating("payEmployee", 1, 1);
