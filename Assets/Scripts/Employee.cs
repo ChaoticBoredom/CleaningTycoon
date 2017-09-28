@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class Employee : MonoBehaviour {
   public Vector2 location;
+  private Vector2 initialLocation;
   private List<Residence> assignedResidences;
   private Residence currentResidence;
   private float cleanRate = 2.5f;
   private float speed = 10.0f;
   private bool employed = false;
+  private bool goingHome = false;
 
   public bool highlighted = false;
 
 	// Use this for initialization
 	void Start () {
-    location = new Vector2(transform.position.x, transform.position.y);
+    initialLocation = new Vector2(transform.position.x, transform.position.y);
+    location = initialLocation;
     assignedResidences = new List<Residence>();
     InvokeRepeating("payEmployee", 1, 1);
-    InvokeRepeating("cleanResidence", 1, 1);
+    InvokeRepeating("goToWork", 1, 1);
 	}
 
 	// Update is called once per frame
 	void Update () {
+    if (goingHome) {
+      if (location == initialLocation) {
+        goingHome = false;
+      } else {
+        moveToLocation(initialLocation);
+      }
+    }
     moveToResidence(currentResidence);
 	}
 
@@ -53,13 +63,17 @@ public class Employee : MonoBehaviour {
     if (currentResidence == null || this.location == currentResidence.location) {
       return;
     }
+    moveToLocation(targetResidence.location);
+  }
+
+  void moveToLocation(Vector2 newLocation) {
     float step = speed * Time.deltaTime;
-    transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), targetResidence.location, step);
+    transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), newLocation, step);
     location.x = transform.position.x;
     location.y = transform.position.y;
   }
 
-  void cleanResidence() {
+  void goToWork() {
     if (assignedResidences.Count == 0) {
       return;
     }
@@ -111,7 +125,7 @@ public class Employee : MonoBehaviour {
         return assignedResidences[i];
       }
     }
-
+    goingHome = true;
     return null;
   }
 
